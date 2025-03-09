@@ -1,8 +1,10 @@
 package com.timgortworst.cleanarchitecture.data.model.movie
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
 
+@JsonClass(generateAdapter = true)
 data class MoviesJson(
     @field:Json(name = "page") val page: Int?,
     @field:Json(name = "total_pages") val totalPages: Int?,
@@ -10,6 +12,7 @@ data class MoviesJson(
     @field:Json(name = "results") val results: List<Result>?,
 ) {
 
+    @JsonClass(generateAdapter = true)
     data class Result(
         @field:Json(name = "adult") val adult: Boolean?,
         @field:Json(name = "backdrop_path") val backdropPath: String?,

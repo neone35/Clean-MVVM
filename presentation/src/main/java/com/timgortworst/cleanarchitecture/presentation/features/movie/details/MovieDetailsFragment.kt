@@ -68,9 +68,9 @@ class MovieDetailsFragment : Fragment(), AppBarOffsetListener.OnScrollStateListe
 
         enterTransition = inflater.inflateTransition(R.transition.media_detail_enter)
         returnTransition = inflater.inflateTransition(android.R.transition.fade)
-        sharedElementEnterTransition = TransitionInflater.from(context)
+        sharedElementEnterTransition = TransitionInflater.from(requireContext())
             .inflateTransition(R.transition.shared_element_transition)
-            .addListener(object : TransitionListenerAdapter() {
+            ?.addListener(object : TransitionListenerAdapter() {
                 override fun onTransitionEnd(transition: Transition) {
                     exitTransition = null
                 }
@@ -171,7 +171,7 @@ class MovieDetailsFragment : Fragment(), AppBarOffsetListener.OnScrollStateListe
                 override fun onLoadFailed(
                     e: GlideException?,
                     model: Any?,
-                    target: Target<Drawable>?,
+                    target: Target<Drawable?>,
                     isFirstResource: Boolean
                 ): Boolean {
                     startPostponedEnterTransition()

@@ -3,6 +3,7 @@ package com.timgortworst.cleanarchitecture.data.di
 import android.content.Context
 import androidx.room.Room
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import com.timgortworst.cleanarchitecture.data.BuildConfig
 import com.timgortworst.cleanarchitecture.data.error.ErrorHandlerImpl
 import com.timgortworst.cleanarchitecture.data.local.*
@@ -75,7 +76,9 @@ abstract class AppModule {
         @MoshiDefault
         fun provideMoshi(
             builder: Moshi.Builder
-        ): Moshi = builder.build()
+        ): Moshi = builder
+            .add(KotlinJsonAdapterFactory())
+            .build()
 
         @Provides
         fun provideMoshiBuilder() = Moshi.Builder()

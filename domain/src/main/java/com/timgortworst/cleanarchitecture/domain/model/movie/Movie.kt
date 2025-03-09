@@ -1,5 +1,8 @@
 package com.timgortworst.cleanarchitecture.domain.model.movie
 
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
 data class Movie(
     val adult: Boolean,
     val backdropPath: String?,

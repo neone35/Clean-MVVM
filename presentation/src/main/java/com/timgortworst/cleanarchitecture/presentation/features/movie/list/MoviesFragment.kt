@@ -51,7 +51,7 @@ class MoviesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMediaListBinding.inflate(layoutInflater, container, false)
-        sharedElementReturnTransition = TransitionInflater.from(context)
+        sharedElementReturnTransition = TransitionInflater.from(requireContext())
             .inflateTransition(R.transition.shared_element_transition)
         return binding.root
     }

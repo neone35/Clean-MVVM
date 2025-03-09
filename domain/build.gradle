@@ -1,6 +1,7 @@
 plugins {
     id("java-library")
     id("kotlin")
+    id("com.google.devtools.ksp")
 }
 
 dependencies {
@@ -9,7 +10,11 @@ dependencies {
     implementation "javax.inject:javax.inject:1"
 
     implementation("androidx.paging:paging-common:$paging_version")
+
+    implementation "com.squareup.moshi:moshi:$moshi_version"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:$moshi_version")
 }
 
-sourceCompatibility = JavaVersion.VERSION_11
-targetCompatibility = JavaVersion.VERSION_11
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
